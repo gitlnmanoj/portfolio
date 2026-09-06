@@ -1,168 +1,1234 @@
 <!DOCTYPE html>
-<html>
-<title>Manoj Lamichhane - The Cooperator</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manoj Lamichhane - The Cooperator | Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        coop: {
+                            gold: '#d97706',
+                            navy: '#1e3a8a',
+                            teal: '#0d9488',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #16a34a 0%, #1e3a8a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dark .gradient-text {
+            background: linear-gradient(135deg, #4ade80 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 231, 235, 0.8);
+        }
+        .dark .glass-card {
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(55, 65, 81, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 font-sans transition-colors duration-300 min-h-screen flex flex-col antialiased">
 
-body, html {
-  height: 100%;
-  line-height: 1.8;
-}
+    <!-- Sticky Navigation Header -->
+    <header class="sticky top-0 z-50 glass-card transition-all duration-300 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-green-600 to-blue-700 text-white flex items-center justify-center font-bold text-xl shadow-md transform group-hover:scale-105 transition-transform duration-200">
+                        ML
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold tracking-tight block text-gray-900 dark:text-white leading-tight">
+                            Manoj Lamichhane
+                        </span>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-green-600 dark:text-green-400">
+                            The Cooperator
+                        </span>
+                    </div>
+                </a>
 
-/* Full height image header */
-.bgimg-1 {
-  background-position: center;
-  background-size: cover;
-  background-image: url("cover.jpg");
-  min-height: 100%;
-}
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                    <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors">About</a>
+                    <a href="#experience" class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors">Experience</a>
+                    <a href="#trainings" class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors">Facilitations</a>
+                    <a href="#certifications" class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors">Certifications</a>
+                    <a href="#education" class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors">Education</a>
+                    <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors">Contact</a>
+                </nav>
 
-.w3-bar .w3-button {
-  padding: 16px;
-}
-</style>
-<body>
+                <!-- Actions & Dark Mode Toggle -->
+                <div class="hidden md:flex items-center gap-4">
+                    <button id="themeToggle" class="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" title="Toggle Theme">
+                        <i id="themeIcon" class="fas fa-moon text-lg"></i>
+                    </button>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide">MANOJ LAMICHANE</a>
-    <!-- Right-sided navbar links -->
-    <div class="w3-right w3-hide-small">
-      <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
-      <a href="#family" class="w3-bar-item w3-button"><i class="fa fa-user"></i> FAMILY</a>
-      <a href="resume.html" class="w3-bar-item w3-button">RESUME</a>
-      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
-    </div>
-    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+                    <a href="mailto:manoj.lamichhane@hotmail.com" class="px-5 py-2.5 rounded-xl bg-green-600 hover:bg-green-700 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+                        <i class="fas fa-paper-plane text-xs"></i>
+                        <span>Get In Touch</span>
+                    </a>
+                </div>
 
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-</div>
-
-<!-- Sidebar on small screens when clicking the menu icon -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
-  <a href="#family" onclick="w3_close()" class="w3-bar-item w3-button">FAMILY</a>
-  <a href="resume.html" onclick="w3_close()" class="w3-bar-item w3-button">RESUME</a>
-  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
-</nav>
-
-<!-- Header with full-height image -->
-<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-display-left w3-text-white" style="padding:48px">
-    </div> 
-  
-</header>
-
-<!-- About Section -->
-<div class="w3-container" style="padding:128px 16px" id="about">
-  <h3 class="w3-center">ABOUT MYSELF</h3>
-  <p class="w3-center w3-large">Major Skills</p>
-  <div class="w3-row-padding w3-center" style="margin-top:64px">
-    <div class="w3-quarter">
-      <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
-      <p class="w3-large">Faciliation</p>
-      
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Counselling</p>
-      
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Policy Development</p>
-      
-    </div>
-    <div class="w3-quarter">
-      <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Research</p>
-      
-    </div>
-  </div>
-</div>
-
-<!-- Family Section -->
-<div class="w3-container" style="padding:128px 16px" id="family">
-  <h3 class="w3-center">FAMILY MEMBERS</h3>
-  <p class="w3-center w3-large">The ones who makes my life better</p>
-  <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="Rachana.jpg" alt="Rachana" style="width:100%">
-        <div class="w3-container">
-          <h3>Rachana Nepal</h3>
-          <p class="w3-opacity">Life Partner</p>
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center gap-2 md:hidden">
+                    <button id="themeToggleMobile" class="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">
+                        <i id="themeIconMobile" class="fas fa-moon text-lg"></i>
+                    </button>
+                    <button id="mobileMenuBtn" class="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="Khusi.jpg" alt="Khusi" style="width:100%">
-        <div class="w3-container">
-          <h3>Khusi Lamichhane</h3>
-          <p class="w3-opacity">Daughter</p>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg">
+            <div class="px-4 pt-3 pb-6 space-y-3 font-medium">
+                <a href="#about" class="block px-3 py-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-green-50 dark:hover:bg-gray-800">About</a>
+                <a href="#experience" class="block px-3 py-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-green-50 dark:hover:bg-gray-800">Experience</a>
+                <a href="#trainings" class="block px-3 py-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-green-50 dark:hover:bg-gray-800">Facilitations</a>
+                <a href="#certifications" class="block px-3 py-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-green-50 dark:hover:bg-gray-800">Certifications</a>
+                <a href="#education" class="block px-3 py-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-green-50 dark:hover:bg-gray-800">Education</a>
+                <a href="#contact" class="block px-3 py-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-green-50 dark:hover:bg-gray-800">Contact</a>
+                <a href="mailto:manoj.lamichhane@hotmail.com" class="block text-center mt-4 w-full py-2.5 rounded-xl bg-green-600 text-white font-semibold">
+                    Get In Touch
+                </a>
+            </div>
         </div>
-      </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative py-16 lg:py-24 overflow-hidden">
+            <div class="absolute inset-0 -z-10 opacity-30 dark:opacity-10">
+                <div class="absolute top-10 left-10 w-96 h-96 bg-green-400 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-10 right-10 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    <!-- Left Hero Content -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-green-100 dark:bg-green-950/80 border border-green-300 dark:border-green-800 text-green-800 dark:text-green-300 text-xs sm:text-sm font-semibold">
+                            <span class="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
+                            <span>Cooperative Trainer</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight">
+                            Empowering Communities Through <span class="gradient-text">Cooperative Financial Growth</span>
+                        </h1>
+
+                        <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                            Hi, I'm <strong class="text-gray-900 dark:text-white">Manoj Lamichhane</strong> ("The Cooperator"). Over 15 years of dedicated service in cooperative banking, credit appraisal, financial literacy training, and institutional development across Nepal.
+                        </p>
+
+                        <!-- Call to Action Buttons -->
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
+                            <a href="#experience" class="px-6 py-3.5 rounded-xl bg-green-600 hover:bg-green-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all flex items-center gap-2">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Explore Career</span>
+                            </a>
+                            <a href="#trainings" class="px-6 py-3.5 rounded-xl bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-100 font-semibold transition-all flex items-center gap-2">
+                                <i class="fas fa-chalkboard-teacher text-green-600 dark:text-green-400"></i>
+                                <span>Facilitation Portfolio</span>
+                            </a>
+                            <button onclick="copyContactInfo()" class="px-4 py-3.5 rounded-xl border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200 font-medium transition-all" title="Copy Contact Details">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+
+                        <!-- Highlights Badge Grid -->
+                        <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-gray-200 dark:border-gray-800">
+                            <div class="text-center lg:text-left">
+                                <span class="block text-2xl sm:text-3xl font-extrabold text-green-600 dark:text-green-400">15+</span>
+                                <span class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-medium">Years Experience</span>
+                            </div>
+                            <div class="text-center lg:text-left">
+                                <span class="block text-2xl sm:text-3xl font-extrabold text-blue-600 dark:text-blue-400">1000+</span>
+                                <span class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-medium">Leaders Trained</span>
+                            </div>
+                            <div class="text-center lg:text-left">
+                                <span class="block text-2xl sm:text-3xl font-extrabold text-amber-600 dark:text-amber-400">10+</span>
+                                <span class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-medium">Certifications</span>
+                            </div>
+                            <div class="text-center lg:text-left">
+                                <span class="block text-2xl sm:text-3xl font-extrabold text-teal-600 dark:text-teal-400">NCBL</span>
+                                <span class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-medium">Member & Training</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Profile Visual Card -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-md">
+                            <!-- Glowing Frame -->
+                            <div class="absolute -inset-1 bg-gradient-to-r from-green-600 to-blue-600 rounded-3xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                            
+                            <div class="relative bg-white dark:bg-gray-800 rounded-3xl p-6 sm:p-8 shadow-2xl border border-gray-100 dark:border-gray-700 space-y-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-700 text-white flex items-center justify-center text-3xl font-bold shadow-lg">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Manoj Lamichhane</h3>
+                                        <p class="text-sm font-medium text-green-600 dark:text-green-400">M.B.S. (Finance - T.U.)</p>
+                                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5"><i class="fas fa-map-marker-alt text-red-500 mr-1"></i>Dhulikhel, Kavrepalanchowk</p>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-3 pt-2 text-sm border-t border-gray-100 dark:border-gray-700">
+                                    <div class="flex items-center justify-between py-1.5 border-b border-gray-100 dark:border-gray-700/50">
+                                        <span class="text-gray-500 dark:text-gray-400"><i class="fas fa-building text-green-600 mr-2"></i>Current Employer</span>
+                                        <span class="font-semibold text-gray-800 dark:text-gray-200">National Co-operative Bank Ltd.</span>
+                                    </div>
+                                    <div class="flex items-center justify-between py-1.5 border-b border-gray-100 dark:border-gray-700/50">
+                                        <span class="text-gray-500 dark:text-gray-400"><i class="fas fa-user-tag text-blue-600 mr-2"></i>Designation</span>
+                                        <span class="font-semibold text-gray-800 dark:text-gray-200">Assistant Officer (A.O.)</span>
+                                    </div>
+                                    <div class="flex items-center justify-between py-1.5 border-b border-gray-100 dark:border-gray-700/50">
+                                        <span class="text-gray-500 dark:text-gray-400"><i class="fas fa-sitemap text-amber-600 mr-2"></i>Department</span>
+                                        <span class="font-semibold text-gray-800 dark:text-gray-200">Member & Training Dept</span>
+                                    </div>
+                                    <div class="flex items-center justify-between py-1.5">
+                                        <span class="text-gray-500 dark:text-gray-400"><i class="fas fa-globe text-teal-600 mr-2"></i>Official Web</span>
+                                        <a href="https://www.manojlamichhane.com.np/" target="_blank" class="font-semibold text-green-600 hover:underline dark:text-green-400">manojlamichhane.com.np</a>
+                                    </div>
+                                </div>
+
+                                <!-- Direct Social & Mobile Links -->
+                                <div class="flex items-center justify-between pt-2">
+                                    <a href="tel:9860922716" class="flex-1 mr-2 py-2.5 px-3 rounded-xl bg-green-50 dark:bg-green-950/50 text-green-700 dark:text-green-300 text-xs font-semibold text-center hover:bg-green-100 dark:hover:bg-green-900 transition-colors">
+                                        <i class="fas fa-phone-alt mr-1"></i> +977 9860922716
+                                    </a>
+                                    <a href="https://www.facebook.com/lnmanoj9841107569" target="_blank" class="p-2.5 rounded-xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 hover:bg-blue-100 transition-colors" title="Facebook Profile">
+                                        <i class="fab fa-facebook-f text-base"></i>
+                                    </a>
+                                    <a href="mailto:manoj.lamichhane@hotmail.com" class="ml-2 p-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 hover:bg-amber-100 transition-colors" title="Send Email">
+                                        <i class="fas fa-envelope text-base"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me & Core Capabilities -->
+        <section id="about" class="py-16 bg-white dark:bg-gray-800/60 border-y border-gray-200 dark:border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-green-600 dark:text-green-400">About Manoj Lamichhane</h2>
+                    <p class="text-3xl font-extrabold text-gray-900 dark:text-white mt-1">Driving Cooperative Excellence & Financial Inclusion</p>
+                    <div class="w-16 h-1 bg-green-500 mx-auto mt-3 rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Objectives Card -->
+                    <div class="glass-card p-6 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Career Objectives</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            Attain higher goals through integrity, perseverance, and innovative ideas. Seeking challenging positions where quantitative, analytical, and logical capabilities optimize synergy within cooperative institutions.
+                        </p>
+                    </div>
+
+                    <!-- Expertise Card -->
+                    <div class="glass-card p-6 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Core Competencies</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            Specialized in Financial Literacy, Credit Management, CoPoMIS & GoAML compliance, Account Supervisory Committee capacity building, and IT wallet development for cooperative networks.
+                        </p>
+                    </div>
+
+                    <!-- Personal Attributes -->
+                    <div class="glass-card p-6 rounded-2xl shadow-sm hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Interpersonal & Values</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            Strong moral grounding, punctual and hardworking. Proven ability to handle multi-tasking under pressure with minimal supervision. Fluent in English and Nepali.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Personal Information Summary -->
+                <div class="mt-12 bg-gray-50 dark:bg-gray-900/70 rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                        <i class="fas fa-id-card text-green-600"></i> Personal Profile Snapshot
+                    </h3>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+                        <div>
+                            <span class="text-gray-500 dark:text-gray-400 block text-xs">Permanent Address</span>
+                            <span class="font-medium text-gray-900 dark:text-gray-200">Dhulikhel-12 (Shankhupatichour), Kavre</span>
+                        </div>
+                        <div>
+                            <span class="text-gray-500 dark:text-gray-400 block text-xs">Date of Birth</span>
+                            <span class="font-medium text-gray-900 dark:text-gray-200">October 25, 1988</span>
+                        </div>
+                        <div>
+                            <span class="text-gray-500 dark:text-gray-400 block text-xs">Languages</span>
+                            <span class="font-medium text-gray-900 dark:text-gray-200">Nepali & English (Fluent)</span>
+                        </div>
+                        <div>
+                            <span class="text-gray-500 dark:text-gray-400 block text-xs">Leisure & Hobbies</span>
+                            <span class="font-medium text-gray-900 dark:text-gray-200">Travelling, Social Work, Research & Music</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section id="experience" class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-10">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-green-600 dark:text-green-400">Professional Journey</h2>
+                    <p class="text-3xl font-extrabold text-gray-900 dark:text-white mt-1">Career & Leadership Experience</p>
+                    <div class="w-16 h-1 bg-green-500 mx-auto mt-3 rounded-full"></div>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap justify-center gap-2 mb-10">
+                    <button onclick="filterExperience('all')" class="exp-filter-btn active px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-green-600 text-white shadow-md">
+                        All Roles
+                    </button>
+                    <button onclick="filterExperience('ncbl')" class="exp-filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300">
+                        NCBL Roles
+                    </button>
+                    <button onclick="filterExperience('cooperative')" class="exp-filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300">
+                        Cooperative Management
+                    </button>
+                    <button onclick="filterExperience('banking-teaching')" class="exp-filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300">
+                        Banking & Academic
+                    </button>
+                </div>
+
+                <!-- Timeline Container -->
+                <div class="space-y-6 relative before:absolute before:inset-0 before:left-4 sm:before:left-1/2 before:-ml-px before:w-0.5 before:bg-gray-200 dark:before:bg-gray-700">
+                    
+                    <!-- Role 1: NCBL Member & Training Dept -->
+                    <div class="exp-item ncbl relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-green-600 text-white font-bold shadow-md shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                            <i class="fas fa-university text-sm"></i>
+                        </div>
+                        <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all border border-green-200 dark:border-green-900/50">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="px-2.5 py-1 rounded-md bg-green-100 dark:bg-green-900/80 text-green-800 dark:text-green-300 font-bold text-xs">
+                                    2025 Nov - Present
+                                </span>
+                                <span class="text-xs text-gray-500 dark:text-gray-400">Head Office</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Assistant Officer (A.O.)</h3>
+                            <h4 class="text-sm font-semibold text-green-600 dark:text-green-400">National Cooperative Bank Ltd. (NCBL) - Member & Training Dept</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
+                                Leading national level facilitation, curriculum development, and training programs for cooperative Board of Directors, Account Supervisory Committees, Credit Sub-Committees, and staff nationwide.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Role 2: NCBL Branch Chief & IT Dept -->
+                    <div class="exp-item ncbl relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-green-600 text-white font-bold shadow-md shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                            <i class="fas fa-building text-sm"></i>
+                        </div>
+                        <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="px-2.5 py-1 rounded-md bg-blue-100 dark:bg-blue-900/80 text-blue-800 dark:text-blue-300 font-bold text-xs">
+                                    2020 Jan - 2025 Oct
+                                </span>
+                                <span class="text-xs text-gray-500 dark:text-gray-400">Multiple Branches & IT</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Assistant Officer & Branch Chief</h3>
+                            <h4 class="text-sm font-semibold text-green-600 dark:text-green-400">National Cooperative Bank Ltd. (NCBL)</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
+                                Served as Branch Chief for <strong>Ilam Branch</strong> and <strong>Sundarharaincha Branch</strong>. Led wallet development business in IT Dept along with monthly progress report development. Also served in Bharatpur & Main Branch.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Role 3: Central Dairy Cooperative Association -->
+                    <div class="exp-item cooperative relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white font-bold shadow-md shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                            <i class="fas fa-cow text-sm"></i>
+                        </div>
+                        <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="px-2.5 py-1 rounded-md bg-amber-100 dark:bg-amber-900/80 text-amber-800 dark:text-amber-300 font-bold text-xs">
+                                    2016 Nov - 2020 Jan
+                                </span>
+                                <span class="text-xs text-gray-500 dark:text-gray-400">Nepal Central Office</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Manager</h3>
+                            <h4 class="text-sm font-semibold text-blue-600 dark:text-blue-400">Central Dairy Cooperative Association Ltd. Nepal (CDCAN)</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
+                                Managed overall office operations, member services, training & development (Good Manufacturing Practice in Raw Milk, Cooperative Accounting, & Management), and policy guidance for dairy cooperatives nationwide.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Role 4: Image Saving & Credit Cooperative -->
+                    <div class="exp-item cooperative relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-600 text-white font-bold shadow-md shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                            <i class="fas fa-coins text-sm"></i>
+                        </div>
+                        <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="px-2.5 py-1 rounded-md bg-purple-100 dark:bg-purple-900/80 text-purple-800 dark:text-purple-300 font-bold text-xs">
+                                    2015 Nov - 2016 Nov
+                                </span>
+                                <span class="text-xs text-gray-500 dark:text-gray-400">Banepa / Kavre</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Manager</h3>
+                            <h4 class="text-sm font-semibold text-amber-600 dark:text-amber-400">Image Saving & Credit Co-operative Ltd.</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
+                                Headed operational leadership including deposit and loan management, financial resource planning, market expansion, and member relation enhancement.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Role 5: Account Officer - Tuki Association -->
+                    <div class="exp-item banking-teaching relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-teal-600 text-white font-bold shadow-md shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                            <i class="fas fa-hand-holding-heart text-sm"></i>
+                        </div>
+                        <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="px-2.5 py-1 rounded-md bg-teal-100 dark:bg-teal-900/80 text-teal-800 dark:text-teal-300 font-bold text-xs">
+                                    2015 Jun - 2015 Sep
+                                </span>
+                                <span class="text-xs text-gray-500 dark:text-gray-400">Sunkoshi</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Account Officer</h3>
+                            <h4 class="text-sm font-semibold text-teal-600 dark:text-teal-400">Tuki Association Sunkoshi (ER-Child Education & Protection Program)</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
+                                Managed project financial planning, budgeting, donor reporting, financial settlements, auditing, and program documentation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Role 6: Nepal Bank Limited -->
+                    <div class="exp-item banking-teaching relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-600 text-white font-bold shadow-md shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                            <i class="fas fa-university text-sm"></i>
+                        </div>
+                        <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="px-2.5 py-1 rounded-md bg-indigo-100 dark:bg-indigo-900/80 text-indigo-800 dark:text-indigo-300 font-bold text-xs">
+                                    2012 Jan - 2015 Jun
+                                </span>
+                                <span class="text-xs text-gray-500 dark:text-gray-400">Chautara Branch</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Assistant (Level 4)</h3>
+                            <h4 class="text-sm font-semibold text-indigo-600 dark:text-indigo-400">Nepal Bank Limited (NBL)</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
+                                Handled general banking, cash operations, customer deposit accounts, loan administration support, and daily financial reporting.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Role 7: Academic Teaching -->
+                    <div class="exp-item banking-teaching relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-600 text-white font-bold shadow-md shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                            <i class="fas fa-graduation-cap text-sm"></i>
+                        </div>
+                        <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="px-2.5 py-1 rounded-md bg-purple-100 dark:bg-purple-900/80 text-purple-800 dark:text-purple-300 font-bold text-xs">
+                                    2007 Jun - 2013 Feb
+                                </span>
+                                <span class="text-xs text-gray-500 dark:text-gray-400">Kavre Colleges & Schools</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Academic Educator</h3>
+                            <h4 class="text-sm font-semibold text-purple-600 dark:text-purple-400">Mathematics, Economics & Account Lecturer</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
+                                Taught Mathematics, Economics, and Accountancy across secondary boarding schools and Krishna Ratna Ganga Higher Secondary School (Part-Time).
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Facilitations & Training Conducted Section -->
+        <section id="trainings" class="py-16 bg-white dark:bg-gray-800/60 border-y border-gray-200 dark:border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-10">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-green-600 dark:text-green-400">Facilitation Leadership</h2>
+                    <p class="text-3xl font-extrabold text-gray-900 dark:text-white mt-1">Training & Workshops Conducted</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Empowering Cooperative Leaders, Board Members & Operational Teams</p>
+                    <div class="w-16 h-1 bg-green-500 mx-auto mt-3 rounded-full"></div>
+                </div>
+
+                <!-- Live Search Bar for Trainings -->
+                <div class="max-w-md mx-auto mb-10 relative">
+                    <input type="text" id="trainingSearch" onkeyup="searchTrainings()" placeholder="Search training topics (e.g. GoAML, Credit, Literacy)..." class="w-full px-4 py-3 pl-11 rounded-2xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500 text-sm">
+                    <i class="fas fa-search absolute left-4 top-3.5 text-gray-400"></i>
+                </div>
+
+                <!-- Grid of Trainings -->
+                <div id="trainingGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Training Item 1 -->
+                    <div class="training-card glass-card p-6 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-green-500 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-gray-900 dark:text-white mb-2">Member Relation Development Training</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Strategies for member engagement, trust building, retention, and loyalty programs tailored for financial cooperatives.
+                        </p>
+                    </div>
+
+                    <!-- Training Item 2 -->
+                    <div class="training-card glass-card p-6 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-green-500 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-gray-900 dark:text-white mb-2">Financial Literacy Training</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Targeted for Cooperative Board of Directors (BoD), Account Supervisory Committees (ASC), Sub-Committees, and general members.
+                        </p>
+                    </div>
+
+                    <!-- Training Item 3 -->
+                    <div class="training-card glass-card p-6 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-green-500 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-gray-900 dark:text-white mb-2">CoPoMIS & GoAML Compliance</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Hands-on technical orientation on reporting mechanisms, CoPoMIS data entry, and Anti-Money Laundering (GoAML) regulation compliance.
+                        </p>
+                    </div>
+
+                    <!-- Training Item 4 -->
+                    <div class="training-card glass-card p-6 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-green-500 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-gray-900 dark:text-white mb-2">Credit Sub-Committee Capacity Building</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Enhancing credit appraisal skills, risk evaluation, loan classification, security valuation, and non-performing asset management.
+                        </p>
+                    </div>
+
+                    <!-- Training Item 5 -->
+                    <div class="training-card glass-card p-6 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-green-500 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fas fa-search-dollar"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-gray-900 dark:text-white mb-2">Account Supervisory Committee Capacity</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Internal auditing standards, financial verification techniques, governance oversight, and legal compliance for ASC members.
+                        </p>
+                    </div>
+
+                    <!-- Training Item 6 -->
+                    <div class="training-card glass-card p-6 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-green-500 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-900/50 text-teal-600 dark:text-teal-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-gray-900 dark:text-white mb-2">NCRA & CICL Registration Facilitation</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Guiding cooperatives through registration, reporting, and operational integration with Credit Information Center Ltd.
+                        </p>
+                    </div>
+
+                    <!-- Training Item 7 -->
+                    <div class="training-card glass-card p-6 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-green-500 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-gray-900 dark:text-white mb-2">Cooperative Staff Motivational Training</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Workplace ethics, leadership development, team alignment, customer service excellence, and productivity boosting.
+                        </p>
+                    </div>
+
+                    <!-- Training Item 8 -->
+                    <div class="training-card glass-card p-6 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-green-500 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-gray-900 dark:text-white mb-2">Cooperative Board Committee Capacity</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Strategic planning, risk governance, policy formulation, capital management, and sustainability for BoD members.
+                        </p>
+                    </div>
+
+                    <!-- Training Item 9 -->
+                    <div class="training-card glass-card p-6 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-green-500 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-gray-900 dark:text-white mb-2">Credit Management Training</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                            End-to-end credit policy implementation, loan disbursement guidelines, recovery strategies, and interest calculation standards.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Certifications & Training Received Section -->
+        <section id="certifications" class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-green-600 dark:text-green-400">Qualifications & Badges</h2>
+                    <p class="text-3xl font-extrabold text-gray-900 dark:text-white mt-1">Professional Training & Certifications</p>
+                    <div class="w-16 h-1 bg-green-500 mx-auto mt-3 rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Cert 1: Raiffeisen -->
+                    <div class="glass-card p-6 rounded-2xl border-l-4 border-l-green-600 hover:shadow-lg transition-all space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded bg-green-100 dark:bg-green-950 text-green-800 dark:text-green-300 font-bold text-xs">6 Months</span>
+                            <i class="fas fa-globe-europe text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 dark:text-white text-base">Raiffeisen Ambassador Training</h3>
+                        <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">International Raiffeisen Union (IRU)</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-300">
+                            6 Self-learning modules, 6 live global exchange sessions & assignments on international cooperative standards.
+                        </p>
+                    </div>
+
+                    <!-- Cert 2: ILO SIYB -->
+                    <div class="glass-card p-6 rounded-2xl border-l-4 border-l-blue-600 hover:shadow-lg transition-all space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-blue-300 font-bold text-xs">5 Days</span>
+                            <i class="fas fa-certificate text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 dark:text-white text-base">ToT on SIYB (TOPE & TOSE Modules)</h3>
+                        <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">ILO / NCBL</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-300">
+                            International Labour Organization (ILO) Start and Improve Your Business Trainer certification.
+                        </p>
+                    </div>
+
+                    <!-- Cert 3: LINAC CICTAB India -->
+                    <div class="glass-card p-6 rounded-2xl border-l-4 border-l-amber-600 hover:shadow-lg transition-all space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 font-bold text-xs">5 Days (Virtual)</span>
+                            <i class="fas fa-project-diagram text-amber-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 dark:text-white text-base">Integrated Cooperative Development</h3>
+                        <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">LINAC in association with CICTAB</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-300">
+                            Adopting Area-Based Integrated Approach - NCDC ICDP Schemes in the Indian context.
+                        </p>
+                    </div>
+
+                    <!-- Cert 4: Cooperative ToT -->
+                    <div class="glass-card p-6 rounded-2xl border-l-4 border-l-purple-600 hover:shadow-lg transition-all space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 font-bold text-xs">15 Days</span>
+                            <i class="fas fa-chalkboard-teacher text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 dark:text-white text-base">Cooperative Training of Trainers (ToT)</h3>
+                        <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">National Co-operative Training Centre</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-300">
+                            Advanced methodology for adult learning, instructional design, and facilitation techniques.
+                        </p>
+                    </div>
+
+                    <!-- Cert 5: Credit Appraisal -->
+                    <div class="glass-card p-6 rounded-2xl border-l-4 border-l-teal-600 hover:shadow-lg transition-all space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300 font-bold text-xs">2 Days</span>
+                            <i class="fas fa-file-contract text-teal-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 dark:text-white text-base">Credit Appraisal & Policy in Cooperative</h3>
+                        <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">CEO - Creating Effective Organization</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-300">
+                            In-depth credit rating, risk mitigation frameworks, and policy structuring for cooperatives.
+                        </p>
+                    </div>
+
+                    <!-- Cert 6: Tax & TDS -->
+                    <div class="glass-card p-6 rounded-2xl border-l-4 border-l-indigo-600 hover:shadow-lg transition-all space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded bg-indigo-100 dark:bg-indigo-950 text-indigo-800 dark:text-indigo-300 font-bold text-xs">1 Day</span>
+                            <i class="fas fa-calculator text-indigo-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 dark:text-white text-base">Income Tax, TDS & Return Filing</h3>
+                        <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">CEO Pvt. Ltd.</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-300">
+                            Practical mastery in withholding tax, TDS filing online portals, and annual tax return calculations.
+                        </p>
+                    </div>
+
+                    <!-- Cert 7: Psychosocial First Aid -->
+                    <div class="glass-card p-6 rounded-2xl border-l-4 border-l-rose-600 hover:shadow-lg transition-all space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300 font-bold text-xs">3 Days</span>
+                            <i class="fas fa-heartbeat text-rose-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 dark:text-white text-base">Psychosocial First Aid (PFA)</h3>
+                        <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Tuki Association Sunkoshi / PLAN International</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-300">
+                            Crisis intervention, community psychological support, and stress management techniques.
+                        </p>
+                    </div>
+
+                    <!-- Cert 8: General Banking -->
+                    <div class="glass-card p-6 rounded-2xl border-l-4 border-l-cyan-600 hover:shadow-lg transition-all space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded bg-cyan-100 dark:bg-cyan-950 text-cyan-800 dark:text-cyan-300 font-bold text-xs">21 Days + Internship</span>
+                            <i class="fas fa-university text-cyan-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 dark:text-white text-base">General Banking Course</h3>
+                        <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Banking Training Institute & Rastriya Banijya Bank</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-300">
+                            Includes 15 operating days internship at Rastriya Banijya Bank, Dhulikhel branch.
+                        </p>
+                    </div>
+
+                    <!-- Cert 9: Software & Database -->
+                    <div class="glass-card p-6 rounded-2xl border-l-4 border-l-emerald-600 hover:shadow-lg transition-all space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-bold text-xs">4 Months</span>
+                            <i class="fas fa-database text-emerald-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 dark:text-white text-base">Diploma in Database Administration</h3>
+                        <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Softech Computer Solutions / MS Access</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-300">
+                            Relational database design, queries, automated forms, and custom financial data structuring.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-16 bg-white dark:bg-gray-800/60 border-y border-gray-200 dark:border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-green-600 dark:text-green-400">Academic Background</h2>
+                    <p class="text-3xl font-extrabold text-gray-900 dark:text-white mt-1">Education & Degree Qualifications</p>
+                    <div class="w-16 h-1 bg-green-500 mx-auto mt-3 rounded-full"></div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Degree 1: MBS -->
+                    <div class="glass-card p-6 rounded-2xl relative overflow-hidden group hover:-translate-y-1 transition-transform">
+                        <div class="absolute -right-4 -bottom-4 text-7xl font-black text-gray-100 dark:text-gray-800/40 select-none">MBS</div>
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300">2017</span>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-3">M.B.S. (Finance)</h3>
+                        <p class="text-xs text-green-600 dark:text-green-400 font-semibold">Tribhuvan University (T.U.)</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Kabhre Multiple Campus</p>
+                        <div class="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700/60 flex justify-between items-center text-xs">
+                            <span class="text-gray-500">Specialization:</span>
+                            <span class="font-bold text-gray-800 dark:text-gray-200">Finance (58.1%)</span>
+                        </div>
+                    </div>
+
+                    <!-- Degree 2: BBS -->
+                    <div class="glass-card p-6 rounded-2xl relative overflow-hidden group hover:-translate-y-1 transition-transform">
+                        <div class="absolute -right-4 -bottom-4 text-7xl font-black text-gray-100 dark:text-gray-800/40 select-none">BBS</div>
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300">2009</span>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-3">B.B.S.</h3>
+                        <p class="text-xs text-blue-600 dark:text-blue-400 font-semibold">Tribhuvan University (T.U.)</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Tejganga Multiple Campus</p>
+                        <div class="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700/60 flex justify-between items-center text-xs">
+                            <span class="text-gray-500">Major:</span>
+                            <span class="font-bold text-gray-800 dark:text-gray-200">Finance & Banking (60.0%)</span>
+                        </div>
+                    </div>
+
+                    <!-- Degree 3: 10+2 -->
+                    <div class="glass-card p-6 rounded-2xl relative overflow-hidden group hover:-translate-y-1 transition-transform">
+                        <div class="absolute -right-4 -bottom-4 text-7xl font-black text-gray-100 dark:text-gray-800/40 select-none">+2</div>
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-300">2006</span>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-3">10+2 Management</h3>
+                        <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold">H.S.E.B. Board</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Tejganga Multiple Campus</p>
+                        <div class="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700/60 flex justify-between items-center text-xs">
+                            <span class="text-gray-500">Focus:</span>
+                            <span class="font-bold text-gray-800 dark:text-gray-200">Econ, Acct, Math (70.6%)</span>
+                        </div>
+                    </div>
+
+                    <!-- Degree 4: SLC -->
+                    <div class="glass-card p-6 rounded-2xl relative overflow-hidden group hover:-translate-y-1 transition-transform">
+                        <div class="absolute -right-4 -bottom-4 text-7xl font-black text-gray-100 dark:text-gray-800/40 select-none">SLC</div>
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300">2004</span>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-3">S.L.C. Board</h3>
+                        <p class="text-xs text-purple-600 dark:text-purple-400 font-semibold">HMG Board Nepal</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Shree Kalika Secondary School</p>
+                        <div class="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700/60 flex justify-between items-center text-xs">
+                            <span class="text-gray-500">Grade:</span>
+                            <span class="font-bold text-gray-800 dark:text-gray-200">Economics (69.9%)</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Competencies Section -->
+        <section class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-6 space-y-6">
+                        <div>
+                            <h2 class="text-xs font-bold uppercase tracking-widest text-green-600 dark:text-green-400">Core Expertise</h2>
+                            <p class="text-3xl font-extrabold text-gray-900 dark:text-white mt-1">Professional Skill Visualizer</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">
+                                Combining practical field leadership with training facilitation and analytical finance.
+                            </p>
+                        </div>
+
+                        <!-- Progress Bar Items -->
+                        <div class="space-y-4 pt-2">
+                            <div>
+                                <div class="flex justify-between items-center mb-1 text-sm font-semibold">
+                                    <span class="text-gray-800 dark:text-gray-200">Facilitation & Training Delivery</span>
+                                    <span class="text-green-600 dark:text-green-400 font-bold">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-green-500 to-emerald-600 h-3 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between items-center mb-1 text-sm font-semibold">
+                                    <span class="text-gray-800 dark:text-gray-200">Cooperative Counselling & Advisory</span>
+                                    <span class="text-blue-600 dark:text-blue-400 font-bold">80%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-600 h-3 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between items-center mb-1 text-sm font-semibold">
+                                    <span class="text-gray-800 dark:text-gray-200">Cooperative Policy & Governance</span>
+                                    <span class="text-amber-600 dark:text-amber-400 font-bold">75%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-amber-500 to-yellow-600 h-3 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between items-center mb-1 text-sm font-semibold">
+                                    <span class="text-gray-800 dark:text-gray-200">Credit Appraisal & Financial Literacy</span>
+                                    <span class="text-teal-600 dark:text-teal-400 font-bold">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-teal-500 to-emerald-600 h-3 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between items-center mb-1 text-sm font-semibold">
+                                    <span class="text-gray-800 dark:text-gray-200">Research & IT Wallet Development</span>
+                                    <span class="text-purple-600 dark:text-purple-400 font-bold">70%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                                    <div class="bg-gradient-to-r from-purple-500 to-indigo-600 h-3 rounded-full" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Professional References -->
+                    <div class="lg:col-span-6">
+                        <div class="glass-card p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-gray-700 space-y-6">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                                <i class="fas fa-user-check text-green-600"></i> Professional References
+                            </h3>
+
+                            <div class="space-y-4">
+                                <div class="p-4 rounded-2xl bg-gray-50 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700">
+                                    <h4 class="font-bold text-gray-900 dark:text-white">Binod Bhattarai</h4>
+                                    <p class="text-xs text-green-600 dark:text-green-400 font-semibold">Member & Training Department Head</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">National Cooperative Bank Ltd. (Head Office)</p>
+                                    <div class="mt-2 flex items-center gap-3 text-xs text-gray-600 dark:text-gray-300">
+                                        <span><i class="fas fa-phone-alt text-green-600 mr-1"></i>9851054081</span>
+                                        <span><i class="fas fa-building text-blue-600 mr-1"></i>01-5180182</span>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 rounded-2xl bg-gray-50 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700">
+                                    <h4 class="font-bold text-gray-900 dark:text-white">Narayan Prasad Devkota</h4>
+                                    <p class="text-xs text-blue-600 dark:text-blue-400 font-semibold">Former President</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">Central Dairy Cooperative Association Ltd. Nepal</p>
+                                    <div class="mt-2 flex items-center gap-3 text-xs text-gray-600 dark:text-gray-300">
+                                        <span><i class="fas fa-mobile-alt text-green-600 mr-1"></i>9855069776</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 bg-white dark:bg-gray-800/60 border-t border-gray-200 dark:border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-green-600 dark:text-green-400">Get In Touch</h2>
+                    <p class="text-3xl font-extrabold text-gray-900 dark:text-white mt-1">Let's Build Better Relations</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Reach out for Cooperative Consultations, Training Sessions, or Capacity Workshops</p>
+                    <div class="w-16 h-1 bg-green-500 mx-auto mt-3 rounded-full"></div>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- Direct Contact Information -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="glass-card p-6 rounded-2xl border border-gray-200 dark:border-gray-700 space-y-4">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Direct Contact</h3>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-400 flex items-center justify-center shrink-0">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-gray-500 dark:text-gray-400 block font-medium">Location</span>
+                                    <span class="font-semibold text-gray-800 dark:text-gray-200 text-sm">Dhulikhel-12 (Shankhupatichour), Kavrepalanchowk, Nepal</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-gray-500 dark:text-gray-400 block font-medium">Mobile Phone</span>
+                                    <a href="tel:9860922716" class="font-semibold text-gray-800 dark:text-gray-200 text-sm hover:text-green-600">+977 9860922716</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-gray-500 dark:text-gray-400 block font-medium">Email Address</span>
+                                    <a href="mailto:manoj.lamichhane@hotmail.com" class="font-semibold text-gray-800 dark:text-gray-200 text-sm hover:text-green-600">manoj.lamichhane@hotmail.com</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-gray-500 dark:text-gray-400 block font-medium">Personal Web</span>
+                                    <a href="https://www.manojlamichhane.com.np/" target="_blank" class="font-semibold text-green-600 dark:text-green-400 text-sm hover:underline">www.manojlamichhane.com.np</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Facebook Profile Integration Card -->
+                        <div class="p-6 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-700 text-white shadow-lg space-y-3">
+                            <div class="flex items-center justify-between">
+                                <h4 class="font-bold text-lg"><i class="fab fa-facebook mr-2"></i>Connect on Facebook</h4>
+                                <span class="text-xs bg-white/20 px-2 py-1 rounded">Active</span>
+                            </div>
+                            <p class="text-xs text-blue-100">
+                                Follow updates on cooperative training sessions, financial literacy workshops, and community development programs.
+                            </p>
+                            <a href="https://www.facebook.com/lnmanoj9841107569" target="_blank" class="inline-block px-4 py-2 rounded-xl bg-white text-blue-700 font-bold text-xs hover:bg-blue-50 transition-colors">
+                                Visit Facebook Profile <i class="fas fa-external-link-alt ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Message Form -->
+                    <div class="lg:col-span-7">
+                        <div class="glass-card p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Send A Direct Message</h3>
+                            
+                            <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Your Full Name</label>
+                                        <input type="text" id="senderName" required placeholder="e.g. Ram Shrestha" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500 text-sm">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Email or Phone</label>
+                                        <input type="text" id="senderContact" required placeholder="e.g. ram@gmail.com / 9800000000" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500 text-sm">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Cooperative Institution / Subject</label>
+                                    <input type="text" id="senderSubject" required placeholder="e.g. Request for Credit Management Training" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500 text-sm">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Message Details</label>
+                                    <textarea id="senderDetails" rows="4" required placeholder="Write your message or inquiry here..." class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full py-3.5 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                                    <i class="fab fa-whatsapp text-lg"></i>
+                                    <span>Send Message via WhatsApp</span>
+                                </button>
+                            </form>
+                            
+                            <div id="formFeedback" class="hidden mt-4 p-4 rounded-xl bg-green-100 text-green-800 text-sm font-semibold text-center">
+                                <i class="fab fa-whatsapp text-green-600 mr-2"></i> Opening WhatsApp with your pre-filled inquiry...
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+                
+                <div class="text-center sm:text-left">
+                    <div class="flex items-center justify-center sm:justify-start gap-2 text-white font-bold text-lg">
+                        <span class="w-8 h-8 rounded-lg bg-green-600 flex items-center justify-center text-xs">ML</span>
+                        <span>Manoj Lamichhane</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1">The Cooperator</p>
+                </div>
+
+                <div class="flex items-center space-x-6 text-sm font-medium">
+                    <a href="#about" class="hover:text-white transition-colors">About</a>
+                    <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+                    <a href="#trainings" class="hover:text-white transition-colors">Facilitation</a>
+                    <a href="https://www.manojlamichhane.com.np/" target="_blank" class="hover:text-white transition-colors">Website</a>
+                </div>
+
+                <div class="text-xs text-gray-500 text-center sm:text-right">
+                    <p>&copy; 2026 Self-developed</p>
+                    
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Box -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-gray-900 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 border border-gray-700">
+        <i id="toastIcon" class="fas fa-check-circle text-green-400 text-lg"></i>
+        <span id="toastMsg" class="text-sm font-medium">Action completed successfully.</span>
     </div>
-    </div>
-</div>
 
-<!-- Contact Section -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
-  <h3 class="w3-center">CONTACT</h3>
-  <p class="w3-center w3-large">Lets build better relation. Keep in touch:</p>
-  <div style="margin-top:48px">
-    <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Kavrepalanchok, Nepal</p>
-    <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Cell: +977 9860922716</p>
-    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: manoj.lamichhane@hotmail.com</p>
-    <br>
-   <p>
-     <a href="mailto:manoj.lamichhane@hotmail.com"><button class="w3-button w3-black" type="submit">
-          <i class="fa fa-paper-plane"></i>SEND MESSAGE
-        </button></a>
-   </p>
-          
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-16">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-</footer>
- 
-<script>
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
+    <script>
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeToggleMobileBtn = document.getElementById('themeToggleMobile');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeIconMobile = document.getElementById('themeIconMobile');
 
+        function initTheme() {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+                if(themeIcon) themeIcon.className = 'fas fa-sun text-amber-400';
+                if(themeIconMobile) themeIconMobile.className = 'fas fa-sun text-amber-400';
+            } else {
+                document.documentElement.classList.remove('dark');
+                if(themeIcon) themeIcon.className = 'fas fa-moon text-lg';
+                if(themeIconMobile) themeIconMobile.className = 'fas fa-moon text-lg';
+            }
+        }
 
-// Toggle between showing and hiding the sidebar when clicking the menu icon
-var mySidebar = document.getElementById("mySidebar");
+        function toggleDarkMode() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+                if(themeIcon) themeIcon.className = 'fas fa-moon text-lg';
+                if(themeIconMobile) themeIconMobile.className = 'fas fa-moon text-lg';
+                showToast('Light Mode Activated', 'fa-sun text-amber-500');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+                if(themeIcon) themeIcon.className = 'fas fa-sun text-amber-400';
+                if(themeIconMobile) themeIconMobile.className = 'fas fa-sun text-amber-400';
+                showToast('Dark Mode Activated', 'fa-moon text-blue-400');
+            }
+        }
 
-function w3_open() {
-  if (mySidebar.style.display === 'block') {
-    mySidebar.style.display = 'none';
-  } else {
-    mySidebar.style.display = 'block';
-  }
-}
+        if(themeToggleBtn) themeToggleBtn.addEventListener('click', toggleDarkMode);
+        if(themeToggleMobileBtn) themeToggleMobileBtn.addEventListener('click', toggleDarkMode);
 
-// Close the sidebar with the close button
-function w3_close() {
-    mySidebar.style.display = "none";
-}
-</script>
+        // Mobile Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if(mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
 
+        // Filter Experience Timeline
+        function filterExperience(category) {
+            const items = document.querySelectorAll('.exp-item');
+            const btns = document.querySelectorAll('.exp-filter-btn');
+
+            btns.forEach(btn => {
+                btn.classList.remove('bg-green-600', 'text-white', 'shadow-md');
+                btn.classList.add('bg-gray-200', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+            });
+
+            event.target.classList.remove('bg-gray-200', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+            event.target.classList.add('bg-green-600', 'text-white', 'shadow-md');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Live Search for Facilitations / Trainings
+        function searchTrainings() {
+            const query = document.getElementById('trainingSearch').value.toLowerCase();
+            const cards = document.querySelectorAll('.training-card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('h3').innerText.toLowerCase();
+                const desc = card.querySelector('p').innerText.toLowerCase();
+
+                if (title.includes(query) || desc.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Copy Contact Information Function
+        function copyContactInfo() {
+            const textToCopy = `Manoj Lamichhane (The Cooperator)\nAssistant Officer - NCBL Member & Training Department\nMobile: +977 9860922716\nEmail: manoj.lamichhane@hotmail.com\nWebsite: https://www.manojlamichhane.com.np/`;
+            
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = textToCopy;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            showToast('Contact details copied to clipboard!', 'fa-copy text-green-400');
+        }
+
+        // Toast Feedback System
+        function showToast(message, iconClass = 'fa-check-circle text-green-400') {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            const toastIcon = document.getElementById('toastIcon');
+
+            toastMsg.innerText = message;
+            toastIcon.className = `fas ${iconClass}`;
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Form Submit Handler with WhatsApp Link Integration
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            // Extract form inputs
+            const name = document.getElementById('senderName').value.trim();
+            const contact = document.getElementById('senderContact').value.trim();
+            const subject = document.getElementById('senderSubject').value.trim();
+            const details = document.getElementById('senderDetails').value.trim();
+
+            // Format message structured for WhatsApp
+            const message = `*New Inquiry via Portfolio Website*\n\n` +
+                            `*Name:* ${name}\n` +
+                            `*Contact:* ${contact}\n` +
+                            `*Institution/Subject:* ${subject}\n\n` +
+                            `*Message:* ${details}`;
+
+            // Manoj Lamichhane WhatsApp link (+977 9860922716)
+            const whatsappUrl = `https://wa.me/9779860922716?text=${encodeURIComponent(message)}`;
+
+            // Open WhatsApp in a new tab/window
+            window.open(whatsappUrl, '_blank');
+
+            // Feedback UI
+            const feedback = document.getElementById('formFeedback');
+            feedback.classList.remove('hidden');
+            showToast('Redirecting to WhatsApp...', 'fa-paper-plane text-green-400');
+            document.getElementById('contactForm').reset();
+
+            setTimeout(() => {
+                feedback.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Initialize Theme on Page Load
+        window.onload = function() {
+            initTheme();
+        };
+    </script>
 </body>
 </html>
